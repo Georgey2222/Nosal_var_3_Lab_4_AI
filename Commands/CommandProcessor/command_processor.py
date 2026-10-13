@@ -204,7 +204,7 @@ class CommandProcessor:
 
     def __set_pattern(self, parts):
         if len(parts) not in [2,3]:
-            print("Некоректний запис set_pattern")
+            print("Некоректний запис set_pattern [n] [m]")
             return True
         try:
             n,m = int(parts[1]),int(parts[1])
@@ -231,6 +231,6 @@ class CommandProcessor:
             return True
 
         except ValueError:
-            print("n та m повинні бути натуральними числами")
+            print("n та m повинні бути натуральними числами, a елементи паттерну 0 або 1")
             return True
             
