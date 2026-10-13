@@ -41,16 +41,16 @@ class CommandProcessor:
             try:
                 size = int(parts[1])
                 if size<1:
-                    print("Розмір поля повинен бути натуральним числом")
+                    print("Розмір поля повинен бути натуральним числом, 1 <= N <= 256")
                     return True
                 self.__game.reset_size(size)
                 self.__game.display()
 
             except ValueError:
-                print("Розмір роля повинен бути натуральнтм числом")
+                print("Розмір роля повинен бути натуральним числом, 1 <= N <= 256")
 
             return True
-        print("Некоректний запис reset [size]")
+        print("Некоректний запис reset [N]")
         return True
 
     def __clear(self,parts):
@@ -80,7 +80,7 @@ class CommandProcessor:
             self.__game.set_random(n)
             self.__game.display()
         except ValueError:
-            print("N повинно бути натуральним числом в межах 0 <= N <= size^2")
+            print("N повинно бути цілим числом в межах 0 <= N <= size^2")
         return True
 
     def __step(self,parts):
@@ -107,7 +107,7 @@ class CommandProcessor:
 
     def __step_animation(self,parts):
         if len(parts)<3 or len(parts)>4:
-            print("Некоректний запис step -d N [delay]")
+            print("Некоректний запис step -d [N] [delay]")
             return True
 
         try:
@@ -162,7 +162,7 @@ class CommandProcessor:
 
     def __back_animation(self,parts):
         if len(parts)<3 or len(parts)>4:
-            print("Некоректний запис back -d N [delay]")
+            print("Некоректний запис back -d [N] [delay]")
             return True
 
         try:
